@@ -18,9 +18,11 @@ export function failurePlants() {
   };
 }
 
-export function Answer(text) {
+export function Answer(id,text) {
+  console.log(id, text)
   return {
     type: '@plants/ANSWER',
+    id,
     text
   };
 }

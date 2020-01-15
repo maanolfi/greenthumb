@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 
 import * as PlantsActions from '../../store/modules/plants/actions'
@@ -20,6 +20,8 @@ export default function Questions() {
   const dispath = useDispatch();
   const teste = useSelector(state => state.plants.answer)
   const [indexPage, setIndexPage] = useState(0)
+  const [result, setResult] = useState({})
+  const [resulterror, setResulterror] = useState(false)
 
   const TitleSun = () => {
     return <p>First, set the amount of <strong>sunlight</strong> your plant will get.</p>
@@ -41,18 +43,21 @@ export default function Questions() {
 
   const answerHeaders = [
     {
+      id: 'sun',
       logo: Sun,
       title: TitleSun,
       btns: ['High Sun', 'Low sun', 'No Answer']
 
     },
     {
+      id: 'water',
       logo: Water,
       title: TitleWater,
       btns: ['Rarely', 'Regulary', 'Daily']
 
     },
     {
+      id: 'pets',
       logo: Pet ,
       title: TitlePets,
       title_small: '',
@@ -74,26 +79,70 @@ export default function Questions() {
     }
   }
 
+  const handleClick = (chave, name) => {
+
+    if(name.toLowerCase().includes('/')) {
+      return setResult({...result, [chave]: false})
+    }
+
+    switch (name.toLowerCase()) {
+      case 'high sun':
+        setResult({...result, [chave]: 'high'})
+        break
+      case 'low sun':
+        setResult({...result, [chave]: 'low'})
+        break
+      case 'no answer':
+        setResult({...result, [chave]: 'no'})
+        break
+      case 'yes':
+        setResult({...result, [chave]: true})
+        break
+      default:
+        setResult({...result, [chave]: name.toLowerCase()})
+    }
+    setResulterror(false)
+  }
+
+  const verifyProp = () => {
+    if(!result.hasOwnProperty('sun')) {
+      setIndexPage(0)
+      setResulterror(true)
+    }
+    if(!result.hasOwnProperty('water')) {
+      setIndexPage(1)
+      setResulterror(true)
+    }
+    if(!result.hasOwnProperty('pets')) {
+      setIndexPage(2)
+      setResulterror(true)
+    }
+  }
 
   return (
     <Container>
       <SideLogo />
-
       <Wrapper>
         <Header>
-          <img src={answerHeaders[indexPage].logo} alt="Logo sun"/>
+          <img src={answerHeaders[indexPage].logo} alt={answerHeaders[indexPage].title()}/>
           {answerHeaders[indexPage].title()}
+          {resulterror && <p className='title-small error'>* is riquired</p>}
         </Header>
         <nav>
         {
           answerHeaders[indexPage].btns.map((elem, index) =>
-          <ButtonAnswer key={index} title={elem}/> )
+          <ButtonAnswer key={index} title={elem}
+          handleClick={() => handleClick(answerHeaders[indexPage].id, elem)}/> )
         }
+        <button onClick={() => verifyProp()}>teste</button>
         </nav>
         <footer>
-          <Button onClick={() => indexPage === 0 ? history.push('/') : handlePage('-')}>
+          <Button  disabled={resulterror ? 'disabled' : null}
+          onClick={() => indexPage === 0 ? history.push('/') : handlePage('-')}>
           {indexPage === 0 ? 'home' : 'previous '}</Button>
-          <Button onClick={() => handlePage('+')}>
+
+          <Button disabled={resulterror ? 'disabled' : null}
+          onClick={() => indexPage === 2 ? verifyProp() : handlePage('+')}>
           {indexPage === 2 ? 'finish' : 'next'}</Button>
         </footer>
 

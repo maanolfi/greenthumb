@@ -1,27 +1,29 @@
-import React, { useState} from 'react'
+import React from 'react'
 
 import { Button, IconSvg } from './styles'
 
 import { NamesSvgColor, NamesSvgWhite } from './IconsRelationship'
 
-const ButtonAnswer = ({ title }) => {
+const ButtonAnswer = ({ title, handleClick }) => {
+
+  let titleIcon = title.toLowerCase();
 
   if(title.includes('/')) {
-    title = 'no answer'
+    titleIcon = 'no answer'
   }
 
   switch (title.toLowerCase()) {
     case 'rarely':
-      title = 'one drop'
+      titleIcon = 'one drop'
       break;
     case 'regulary':
-      title = 'two drop'
+      titleIcon = 'two drop'
       break;
     case 'daily':
-      title = 'three drop'
+      titleIcon = 'three drop'
       break;
     case 'yes':
-      title = 'pet'
+      titleIcon = 'pet'
       break;
     default:
 
@@ -29,15 +31,14 @@ const ButtonAnswer = ({ title }) => {
 
 
   const titleSvg = NamesSvgColor.filter(elem =>
-    elem.includes(title.toLowerCase().replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g,'-'))).toString()
+    elem.includes(titleIcon.replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g,'-'))).toString()
 
   const titleSvgWhite = NamesSvgWhite.filter(elem =>
-    elem.includes(title.toLowerCase().replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g,'-'))).toString()
+    elem.includes(titleIcon.replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g,'-'))).toString()
 
 
   return(
-    <Button nameSvgWhite={titleSvgWhite}>
-    {console.log(title, titleSvg)}
+    <Button nameSvgWhite={titleSvgWhite} onClick={handleClick}>
       <IconSvg nameSvg={titleSvg} />
       <span> </span>
       <p>{title}</p>

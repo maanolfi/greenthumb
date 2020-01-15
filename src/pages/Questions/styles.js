@@ -48,6 +48,10 @@ export const Header= styled(Wrapper)`
     line-height: 39px;
     margin: 0;
   }
+
+  .error {
+    color: red;
+  }
 `
 
 export const Button = styled.button`
@@ -66,8 +70,13 @@ export const Button = styled.button`
       transition: 0.4s;
       color: #fff;
       background-color: #15573F;
+    }
 
-
+    :disabled {
+      border: 2px dashed #6E6E6E;
+      background-color: #6E6E6E;
+      color: #ffff;
+      cursor: auto;
     }
 
 

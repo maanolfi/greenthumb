@@ -18,7 +18,7 @@ export default function plantsData(state = INITIAL_STATE, action) {
 
     case '@plants/ANSWER':
       return produce(state, draft => {
-        draft.answer.sun =  action.text
+        draft.answer.action.id =  action.text
       });
 
     default:
