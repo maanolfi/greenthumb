@@ -82,8 +82,10 @@ export default function Questions() {
   const handleClick = (chave, name, event) => {
       event.preventDefault()
 
-    if(event.target.id === name){
-      setClickname(name.toLowerCase().replace(' ','-'))
+    const nameFormt = name.toLowerCase().replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g,'-');
+
+    if(event.target.id === nameFormt){
+      setClickname(nameFormt)
     }
 
     if(name.toLowerCase().includes('/')) {

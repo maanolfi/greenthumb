@@ -29,18 +29,19 @@ const ButtonAnswer = ({ title, handleClick, idClick }) => {
 
   }
 
-
+  const titleClick = titleIcon.replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g,'-');
+  const idClickFormt = idClick.toLowerCase().replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g,'-')
   const titleSvg = NamesSvgColor.filter(elem =>
-    elem.includes(titleIcon.replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g,'-'))).toString()
+    elem.includes(titleClick)).toString()
 
   const titleSvgWhite = NamesSvgWhite.filter(elem =>
-    elem.includes(titleIcon.replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g,'-'))).toString()
+    elem.includes(titleClick)).toString()
 
 
   return(
-    <Button nameSvgWhite={titleSvgWhite} id={idClick} className={title.toLowerCase().replace(' ', '-')}
+    <Button nameSvgWhite={titleSvgWhite} id={idClickFormt} className={idClickFormt}
     onClick={handleClick}>
-      <IconSvg nameSvg={titleSvg} />
+      <IconSvg nameSvg={titleSvg} /> {console.log('button', idClickFormt)}
       <span> </span>
       <p>{title}</p>
     </Button>

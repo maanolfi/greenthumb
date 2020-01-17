@@ -30,7 +30,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
 
   nav .${props => props.idClick} {
-    background-color: red;
+    border: 2px solid #FD9872;
   }
 
 `;
