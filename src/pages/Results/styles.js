@@ -59,21 +59,21 @@ export const Header = styled(Wrapper)`
 
 
       button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-      background: #15573F;
-      border-radius: 28px;
-      width: 213px;
-      height: 50px;
-      margin-top: 13px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        background: #15573F;
+        border-radius: 28px;
+        width: 213px;
+        height: 50px;
+        margin-top: 13px;
 
-      font-weight: 300;
-      font-size: 16px;
-      line-height: 20px;
-      text-align: center;
-      color: #FFFFFF;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        color: #FFFFFF;
 
     }
 

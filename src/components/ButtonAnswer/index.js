@@ -41,7 +41,7 @@ const ButtonAnswer = ({ title, handleClick, idClick }) => {
   return(
     <Button nameSvgWhite={titleSvgWhite} id={idClickFormt} className={idClickFormt}
     onClick={handleClick}>
-      <IconSvg nameSvg={titleSvg} /> {console.log('button', idClickFormt)}
+      <IconSvg nameSvg={titleSvg} />
       <span> </span>
       <p>{title}</p>
     </Button>
