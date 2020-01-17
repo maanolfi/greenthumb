@@ -1,5 +1,5 @@
-import React, { useState, Fragment, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState, Fragment } from 'react';
+import { useDispatch } from 'react-redux'
 
 import * as PlantsActions from '../../store/modules/plants/actions'
 import history from '../../services/history'
@@ -18,7 +18,6 @@ import { Container, Wrapper, Header, Button } from './styles';
 
 export default function Questions() {
   const dispath = useDispatch();
-  const teste = useSelector(state => state.plants.answer)
   const [indexPage, setIndexPage] = useState(0)
   const [result, setResult] = useState({})
   const [resulterror, setResulterror] = useState(false)
@@ -53,20 +52,20 @@ export default function Questions() {
       id: 'water',
       logo: Water,
       title: TitleWater,
-      btns: ['Rarely', 'Regulary', 'Daily']
+      btns: ['Rarely', 'Regularly', 'Daily']
 
     },
     {
       id: 'pets',
       logo: Pet ,
       title: TitlePets,
-      title_small: '',
       btns: ['Yes', "No/They don't care"]
 
     }
   ];
 
   const handlePage = (text) => {
+
     switch (text) {
       case '+':
         setIndexPage(indexPage +1)
@@ -77,50 +76,59 @@ export default function Questions() {
       default:
 
     }
+
   }
 
   const handleClick = (chave, name) => {
 
     if(name.toLowerCase().includes('/')) {
-      return setResult({...result, [chave]: false})
+      setResulterror(false)
+      return setResult({...result, [chave]: false, click: true})
     }
 
     switch (name.toLowerCase()) {
       case 'high sun':
-        setResult({...result, [chave]: 'high'})
+        setResult({...result, [chave]: 'high', click: true})
         break
       case 'low sun':
-        setResult({...result, [chave]: 'low'})
+        setResult({...result, [chave]: 'low', click: true})
         break
       case 'no answer':
-        setResult({...result, [chave]: 'no'})
+        setResult({...result, [chave]: 'no', click: true})
         break
       case 'yes':
-        setResult({...result, [chave]: true})
+        setResult({...result, [chave]: true, click: true})
         break
       default:
-        setResult({...result, [chave]: name.toLowerCase()})
+        setResult({...result, [chave]: name.toLowerCase(), click: true})
     }
     setResulterror(false)
   }
 
-  const verifyProp = () => {
+  const verifyFinishProp = () => {
     if(!result.hasOwnProperty('sun')) {
       setIndexPage(0)
-      setResulterror(true)
+      return setResulterror(true)
+
     }
     if(!result.hasOwnProperty('water')) {
       setIndexPage(1)
-      setResulterror(true)
+      return setResulterror(true)
+
     }
     if(!result.hasOwnProperty('pets')) {
       setIndexPage(2)
-      setResulterror(true)
+      return setResulterror(true)
+
     }
+
+    dispath(PlantsActions.Answer(result))
   }
+
 
   return (
     <Container>
+
       <SideLogo />
       <Wrapper>
         <Header>
@@ -131,10 +139,10 @@ export default function Questions() {
         <nav>
         {
           answerHeaders[indexPage].btns.map((elem, index) =>
-          <ButtonAnswer key={index} title={elem}
+          <ButtonAnswer key={index} title={elem} selected={result.click}
           handleClick={() => handleClick(answerHeaders[indexPage].id, elem)}/> )
         }
-        <button onClick={() => verifyProp()}>teste</button>
+
         </nav>
         <footer>
           <Button  disabled={resulterror ? 'disabled' : null}
@@ -142,7 +150,8 @@ export default function Questions() {
           {indexPage === 0 ? 'home' : 'previous '}</Button>
 
           <Button disabled={resulterror ? 'disabled' : null}
-          onClick={() => indexPage === 2 ? verifyProp() : handlePage('+')}>
+          onClick={() => indexPage === 2 ?
+            verifyFinishProp() : handlePage('+')}>
           {indexPage === 2 ? 'finish' : 'next'}</Button>
         </footer>
 

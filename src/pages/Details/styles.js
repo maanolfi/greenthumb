@@ -23,26 +23,27 @@ export const Wrapper = styled.div`
   align-items: center;
 `
 
-export const ContentDetails = styled.div`   
+export const ContentDetails = styled.div`
   width: 381px;
-  height: 512px;  
+  height: 512px;
   display: flex;
   flex-direction: column;
 
  .img-plants {
-   
     max-width: 300px;
-    max-height: 300px;    
+    min-width: 200px;
+    max-height: 300px;
+    min-height: 200px;
     align-self: center;
   }
 
-  h2 {    
+  h2 {
   font-size: 50px;
   line-height: 55px;
 
   }
 
-  p {      
+  p {
     font-weight: 300;
     font-size: 24px;
     line-height: 29px;
@@ -50,72 +51,31 @@ export const ContentDetails = styled.div`
     color: #D6D6D6;
   }
 
-  span p {
-  margin-top: 30px;
-  color: #6E6E6E;
-  }
-
-`
-
-export const ContentForm = styled.div`   
-  width: 381px;
-  height: 512px;
-  background-color: #f6f6f6;     
-  padding: 40px;
-
-  h2 {    
-    font-size: 40px;
-    line-height: 37px;
-  }
-
-  p {      
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 29px;
-    color: #6E6E6E;
-    margin-top: 16px;
-  }
-
-  form {
+  span {
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
 
-    label:nth-child(3) {
-      margin-top: 30px;
+    div {
+      display: flex;
+      align-items: center;
+
+      img {
+        max-width: 30px;
+        max-height: 30px;
+        margin: 15px 10px;
+
+      }
+
+      p {
+        color: #6E6E6E;
+        margin: 0;
+      }
+
     }
 
-    label {        
-      font-weight: 600;
-      font-size: 16px;
-      line-height: 27px;
-      color: #6E6E6E;
-      margin-bottom: 5px;
-    }
 
-    input {
-      width: 285px;
-      height: 40px;
-      background: #FFFFFF;
-      border-radius: 19px;
-      border: none;        
-      font-weight: 300;
-      font-size: 14px;
-      line-height: 27px;
-      color: #D0D0D0;
-      padding-left: 24px;
-    }
-
-    button {
-      align-self: flex-end;
-      width: 138px;
-      height: 50px;
-      border: 1px solid #15573F;
-      box-sizing: border-box;
-      border-radius: 25px;
-      background-color: #f6f6f6;
-      margin-top: 30px;
-    }
   }
-   
+
+
+
 `

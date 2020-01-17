@@ -1,14 +1,14 @@
-export function requestPlantsResults(result) {
+export function Answer(answers) {
   return {
-    type: '@plants/REQUEST_ALL_RESULTS',
-    result
+    type: '@plants/ANSWER_REQUEST',
+    answers
   };
 }
 
-export function successPlants(dados) {
+export function successPlants(data) {
   return {
     type: '@plants/SUCCESS',
-    payload: { dados },
+    data,
   };
 }
 
@@ -18,11 +18,31 @@ export function failurePlants() {
   };
 }
 
-export function Answer(id,text) {
-  console.log(id, text)
+
+export function requestOnlyPlant(id) {
   return {
-    type: '@plants/ANSWER',
-    id,
-    text
+    type: '@plants/REQUEST_ONLY_PLANT',
+    id
   };
 }
+
+export function successOnlyPlant(data) {
+  return {
+    type: '@plants/SUCCESS_ONLY_PLANT',
+    data,
+  };
+}
+
+export function postMsgPlant(data) {
+  return {
+    type: '@plants/POST_MSG',
+    data,
+  };
+}
+
+export function postMsgPlantSuccess() {
+  return {
+    type: '@plants/POST_MSG_SUCCESS',
+  };
+}
+

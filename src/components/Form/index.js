@@ -1,58 +1,67 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import * as yup from 'yup'
+import React, { Fragment } from 'react'
+import { useForm } from 'react-hook-form'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { ErrorMessage, Formik, Form as FormikForm, Field } from 'formik'
+import { postMsgPlant  } from '../../store/modules/plants/actions'
 
-import { Div } from './styled'
+import { ContentForm } from './styles.js'
+import EnvelopImg from '../../assets/illustrations/envelop.png'
 
-const validations = yup.object().shape({
-  title: yup.string().required(),
-  link: yup.string().required(),
-  description: yup.string().required(),
-  tags: yup.string().required(),
-})
+const FormPlant = () => {
 
-const Form = ({ initialValues, handleSubmit }) => {
+  const dispath = useDispatch();
+  const idPlant = useSelector(state => state.plants.plant.id)
+  const mgssuccess = useSelector(state => state.plants.mgssuccess)
+  const { register, handleSubmit, errors } = useForm()
+
+  const onSubmit = data => {
+    const datapost = {
+      ...data,
+      id: idPlant
+    }
+    dispath(postMsgPlant(datapost))
+  }
 
   return(
-    <Div>
-      <span>+ Add new tool</span>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}
-      validationSchema={validations}
-      validateOnBlur={false}
-      validateOnChange={false}
-      >
+    <ContentForm>
+      {
+        !mgssuccess ?
+          <Fragment>
+            <h2>Nice pick! </h2>
+            <p>Tell us your name and e-mail and we will get in touch regarding
+            your order ;)</p>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <label>Name</label>
+              <input
+              name='name'
+              placeholder='Crazy Plant Person'
+              ref={register({ required: true})}/>
+              {errors.name && <span>*is required</span>}
+              <label className={errors.email ? 'error' : null}>Email</label>
+              <input
+              name='email'
+              placeholder='plantperson@email.com'
+              className={errors.email ? 'error input' : null}
+              ref={register({
+                required: true,
+                pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+              })}/>
+              {errors.email && <span>Please provide a valid e-mail.</span>}
+              <button type="submit">send</button>
+            </form>
+          </Fragment>
+      :
+          <Fragment>
+            <div className='center'>
+              <h2>Thank you!</h2>
+              <p>You will hear from us soon. Please check your e-mail!</p>
 
-        <FormikForm>
-            <ErrorMessage component='span' name='title' />
-            <label  htmlFor='title'>Tool Name</label>
-            <Field name='title' type='text' />
-
-            <label  htmlFor='link'>Tool Link</label>
-            <Field name='link' type='text' />
-
-            <label  htmlFor='description'>Tool description</label>
-            <Field name='description' type='text' />
-
-            <label  htmlFor='tags'>Tags</label>
-            <Field name='tags' type='text' placeholder='comma separated' />
-
-            <div className="button">
-            <button type='submit'>Add tool</button>
+              <img src={EnvelopImg} alt="Envelop, thank you."/>
             </div>
-
-          </FormikForm>
-
-
-      </Formik>
-    </Div>
+          </Fragment>
+    }
+    </ContentForm>
   )
 }
 
-Form.propTypes = {
-  initialValues: PropTypes.object.isRequired,
-  handleSubmit: PropTypes.func.isRequired
-}
-
-export default Form
+export default FormPlant

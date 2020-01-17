@@ -1,41 +1,102 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 import SideLogo from '../../components/SideLogo'
+import FormPlant from '../../components/Form'
 
-import PickLogo from '../../assets/illustrations/pick.png'
+import { NamesSvgGrey } from './IconsRelationship'
 
-import { Container, Wrapper, ContentDetails, ContentForm } from './styles';
+import { Container, Wrapper, ContentDetails } from './styles';
 
-export default function Questions() {
+export default function Details() {
+  const loading = useSelector(state => state.plants.loading)
+  const result = useSelector(state => state.plants.plant)
+
+
+  let titleIconSun = result.sun;
+  let titleIconWater = result.water;
+  let titleIconPetorToxic = '';
+
+  if (result.toxicity) {
+      titleIconPetorToxic = 'toxic';
+  }
+
+  if (!result.toxicity) {
+     titleIconPetorToxic = 'pet';
+  }
+
+  switch (titleIconSun) {
+    case 'high':
+      titleIconSun = 'high sun'
+      break;
+    case 'low':
+      titleIconSun = 'low sun'
+      break;
+    case 'no':
+      titleIconSun = 'no answer'
+      break;
+    default:
+
+  }
+
+  switch (titleIconWater) {
+    case 'rarely':
+      titleIconWater = 'one drop'
+      break;
+    case 'regularly':
+      titleIconWater = 'two drops'
+      break;
+    case 'daily':
+      titleIconWater = 'three drops'
+      break;
+    default:
+
+  }
+
+    const titleSvgSun = NamesSvgGrey.filter(elem =>
+      elem.includes(titleIconSun.replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g,'-'))).toString()
+
+    const titleSvgWater = NamesSvgGrey.filter(elem =>
+    elem.includes(titleIconWater.replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g,'-'))).toString()
+
+    const titleSvgToxicOrPet = NamesSvgGrey.filter(elem =>
+    elem.includes(titleIconPetorToxic.replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g,'-'))).toString()
+
+  const upperCase = (text) => {
+    let str1 = text.substring(0,1)
+    return text = text.replace(str1, str1.toUpperCase())
+  }
+
   return (
     <Container>
       <SideLogo />
 
       <Wrapper>
         <ContentDetails>
-          <h2>Succulent bowl</h2>
-          <p>$30</p>
-          <img src={PickLogo} alt="" className='img-plants'/>
+          {loading && <p>Carregando...</p>}
+
+          <h2>{result.name}</h2>
+          <p>${result.price}</p>
+          <img src={result.url} alt={result.name} className='img-plants'/>
           <span>
-            <img src="" alt=""/>
-            <p>High sunligh</p>
+            <div>
+              <img src={titleSvgSun} alt=""/>
+              <p>{upperCase(result.sun)} sunlight</p>
+            </div>
+            <div>
+              <img src={titleSvgWater} alt=""/>
+              <p>Water {upperCase(result.water)}</p>
+            </div>
+            <div>
+              <img src={titleSvgToxicOrPet} alt=""/>
+              {result.toxicity ? <p><strong>Beware!</strong> Toxic for pets</p>
+                 : <p>Non-toxic for pets</p>}
+            </div>
           </span>
         </ContentDetails>
 
-        <ContentForm>
-          <h2>Nice pick! </h2>
-          <p>Tell us your name and e-mail and we will get in touch regarding 
-          your order ;)</p>
-          <form action="">
-          <label>Name</label>
-          <input type="text"  placeholder='Name'/>
-          <label>Email</label>
-          <input type="text" placeholder='Email'/>
-          <button>send</button>
-          </form>
-        </ContentForm>
-       
+        <FormPlant />
+
 
 
       </Wrapper>

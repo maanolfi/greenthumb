@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
 export const Header = styled(Wrapper)`
   max-width: 598px;
 
-  p {    
+  p {
     font-weight: bold;
     font-size: 65px;
     line-height: 79px;
@@ -30,15 +30,15 @@ export const Header = styled(Wrapper)`
     color: #0C261C;
   }
 `
- export const Main = styled.main`  
+ export const Main = styled.main`
     display: flex;
     flex-wrap: wrap;
     max-width: 900px;
     margin: 0 auto;
     padding-bottom: 20px;
-    
+
     .plants-card {
-      
+
       margin: 0 10px;
       flex: 1 1 268px;
       margin-top: 78px;
@@ -49,42 +49,42 @@ export const Header = styled(Wrapper)`
       display: flex;
       flex-direction: column;
       padding: 13px 30px;
-      
+
 
       img {
         align-self: center;
         width: 168px;
         height: 168px;
       }
-      
 
-      a {
+
+      button {
       display: flex;
       justify-content: center;
       align-items: center;
-      color: #fff;      
+      color: #fff;
       background: #15573F;
       border-radius: 28px;
       width: 213px;
       height: 50px;
       margin-top: 13px;
-      
+
       font-weight: 300;
       font-size: 16px;
       line-height: 20px;
       text-align: center;
-      color: #FFFFFF;      
+      color: #FFFFFF;
 
     }
 
-      p {        
+      p {
         font-weight: bold;
         font-size: 18px;
         line-height: 28px;
         color: #15573F;
       }
 
-      span {        
+      span {
         font-weight: 300;
         font-size: 18px;
         line-height: 28px;

@@ -14,7 +14,6 @@ export default function Routes() {
       <Route path="/questions" exact component={Questions} />
       <Route path="/results" exact component={Results} />
       <Route path="/details" exact component={Details} />
-
     </Switch>
   );
 }
