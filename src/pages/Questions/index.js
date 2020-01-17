@@ -21,6 +21,7 @@ export default function Questions() {
   const [indexPage, setIndexPage] = useState(0)
   const [result, setResult] = useState({})
   const [resulterror, setResulterror] = useState(false)
+  const [clickname, setClickname] = useState(null)
 
   const TitleSun = () => {
     return <p>First, set the amount of <strong>sunlight</strong> your plant will get.</p>
@@ -45,7 +46,7 @@ export default function Questions() {
       id: 'sun',
       logo: Sun,
       title: TitleSun,
-      btns: ['High Sun', 'Low sun', 'No Answer']
+      btns: ['High Sun', 'Low Sun', 'No Answer']
 
     },
     {
@@ -65,7 +66,6 @@ export default function Questions() {
   ];
 
   const handlePage = (text) => {
-
     switch (text) {
       case '+':
         setIndexPage(indexPage +1)
@@ -79,28 +79,37 @@ export default function Questions() {
 
   }
 
-  const handleClick = (chave, name) => {
+  const handleClick = (chave, name, event) => {
+      event.preventDefault()
+
+    if(event.target.id === name){
+      setClickname(name.toLowerCase().replace(' ','-'))
+    }
 
     if(name.toLowerCase().includes('/')) {
       setResulterror(false)
-      return setResult({...result, [chave]: false, click: true})
+      return setResult({...result, [chave]: false})
     }
+
 
     switch (name.toLowerCase()) {
       case 'high sun':
-        setResult({...result, [chave]: 'high', click: true})
+        setResult({...result, [chave]: 'high', click: 1})
+
         break
       case 'low sun':
-        setResult({...result, [chave]: 'low', click: true})
+        setResult({...result, [chave]: 'low', click: 2})
+
         break
       case 'no answer':
-        setResult({...result, [chave]: 'no', click: true})
+        setResult({...result, [chave]: 'no', click: 3})
+
         break
       case 'yes':
-        setResult({...result, [chave]: true, click: true})
+        setResult({...result, [chave]: true})
         break
       default:
-        setResult({...result, [chave]: name.toLowerCase(), click: true})
+        setResult({...result, [chave]: name.toLowerCase()})
     }
     setResulterror(false)
   }
@@ -130,7 +139,7 @@ export default function Questions() {
     <Container>
 
       <SideLogo />
-      <Wrapper>
+      <Wrapper idClick={clickname}>
         <Header>
           <img src={answerHeaders[indexPage].logo} alt={answerHeaders[indexPage].title()}/>
           {answerHeaders[indexPage].title()}
@@ -139,8 +148,8 @@ export default function Questions() {
         <nav>
         {
           answerHeaders[indexPage].btns.map((elem, index) =>
-          <ButtonAnswer key={index} title={elem} selected={result.click}
-          handleClick={() => handleClick(answerHeaders[indexPage].id, elem)}/> )
+          <ButtonAnswer key={index} title={elem} idClick={elem}
+          handleClick={(event) => handleClick(answerHeaders[indexPage].id, elem, event)}/> )
         }
 
         </nav>

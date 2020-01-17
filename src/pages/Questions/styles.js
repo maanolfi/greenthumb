@@ -29,6 +29,10 @@ export const Wrapper = styled.div`
   align-items: center;
   flex-direction: column;
 
+  nav .${props => props.idClick} {
+    background-color: red;
+  }
+
 `;
 
 export const Header= styled(Wrapper)`

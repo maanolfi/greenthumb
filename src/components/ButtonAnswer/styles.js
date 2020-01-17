@@ -27,9 +27,9 @@ export const Button = styled.button`
     margin-top: 30px;
   }
 
-  .selected {
-    background: #FD9872;
-  }
+
+
+
 `
 
 export const IconSvg = styled.span`

@@ -4,7 +4,7 @@ import { Button, IconSvg } from './styles'
 
 import { NamesSvgColor, NamesSvgWhite } from './IconsRelationship'
 
-const ButtonAnswer = ({ title, handleClick, selected }) => {
+const ButtonAnswer = ({ title, handleClick, idClick }) => {
 
   let titleIcon = title.toLowerCase();
 
@@ -38,7 +38,8 @@ const ButtonAnswer = ({ title, handleClick, selected }) => {
 
 
   return(
-    <Button nameSvgWhite={titleSvgWhite} onClick={handleClick} selected>{console.log(selected)}
+    <Button nameSvgWhite={titleSvgWhite} id={idClick} className={title.toLowerCase().replace(' ', '-')}
+    onClick={handleClick}>
       <IconSvg nameSvg={titleSvg} />
       <span> </span>
       <p>{title}</p>

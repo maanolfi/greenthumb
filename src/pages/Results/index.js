@@ -18,8 +18,7 @@ export default function Results() {
   return (
     <Container>
       <SideLogo />
-
-      <Wrapper>
+       <Wrapper>
         <Header>
           <img src={PickLogo} alt="Logo pick"/>
           <p>Our picks for you</p>

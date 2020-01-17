@@ -1,18 +1,20 @@
 import produce from 'immer';
 
 const INITIAL_STATE = {
-  results: {},
+  results: [{id: 1, name: "Euphorbia eritrea"}],
   loading: false,
   mgssuccess: false,
   plant: {}
 };
 
 export default function plantsData(state = INITIAL_STATE, action) {
+
   switch (action.type) {
     case '@plants/ANSWER_REQUEST':
       return produce(state, draft => {
         draft.loading = true;
       });
+
     case '@plants/SUCCESS':
       return produce(state, draft => {
         draft.results = action.data;
