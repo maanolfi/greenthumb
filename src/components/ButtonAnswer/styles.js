@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import pointer from '../../assets/icons/pointer.svg';
 
 export const Button = styled.button`
   width: 215px;
@@ -7,6 +7,7 @@ export const Button = styled.button`
   background-color: #fff;
   margin: 35px 30px 37px 30px;
   border-radius: 5px;
+  cursor: url(${pointer}), auto;
 
   :hover {
     transition: 0.4s;

@@ -99,7 +99,16 @@ export const ContentForm = styled.div`
       border-radius: 25px;
       background-color: #f6f6f6;
       margin-top: 30px;
-    }
+      color: #15573F;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 20px;
+
+      :hover {
+        transition: 0.4s;
+        color: #f6f6f6;
+        background-color: #15573F;
+      }    }
 
     span {
       color: #F71D1D;

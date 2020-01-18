@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import pointer from '../../assets/icons/pointer.svg';
 
 
 export const Container = styled.div`
@@ -69,11 +70,35 @@ export const Button = styled.button`
     font-weight: 300;
     font-size: 16px;
     line-height: 20px;
+    cursor: url(${pointer}), auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     :hover {
       transition: 0.4s;
       color: #fff;
       background-color: #15573F;
+
+      span {
+        border: 0.82px solid #fff;
+      }
+
+      span.next {
+          ::before {
+            content: '';
+            background-color: #fff;
+            transform: rotate(45deg) translate(0,17.9px) scale(1);
+          }
+        }
+      span.prev {
+        ::before {
+          content: '';
+          background-color: #fff;
+          transform: rotate(45deg) translate(-7px,4.99px) scale(1);;
+        }
+      }
     }
 
     :disabled {
@@ -82,6 +107,60 @@ export const Button = styled.button`
       color: #ffff;
       cursor: auto;
     }
+
+    svg {
+      margin: 0 5px;
+    }
+
+    span {
+        width: 14px;
+        height: 14px;
+        border: 0.82px solid #15573F;
+        transition: .5s;
+
+      }
+
+      span.next {
+        margin-left: 20px;
+        transform: rotate(-45deg);
+        border-left: none;
+        border-top: none;
+
+        ::before {
+          content: '';
+          width: 19px;
+          height: 1px;
+          background-color: #15573F;
+          position: absolute;
+          transform-origin: right;
+          transform: rotate(45deg) translate(-1.2px,17.9px) scale(0);
+          transition: .5s;
+
+        }
+
+
+      }
+
+      span.prev {
+        margin-right: 20px;
+        transform: rotate(-45deg);
+        border-right: none;
+        border-bottom: none;
+
+        ::before {
+          content: '';
+          width: 19px;
+          height: 1px;
+          background-color: #15573F;
+          position: absolute;
+          transform-origin: left;
+          transform: rotate(45deg) translate(-6px,3px) scale(0);
+          transition: .5s;
+
+        }
+
+
+      }
 
 
 

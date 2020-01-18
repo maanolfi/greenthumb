@@ -1,6 +1,7 @@
 import React, { useState, Fragment } from 'react';
 import { useDispatch } from 'react-redux'
 
+
 import * as PlantsActions from '../../store/modules/plants/actions'
 import history from '../../services/history'
 
@@ -145,7 +146,7 @@ export default function Questions() {
         <Header>
           <img src={answerHeaders[indexPage].logo} alt={answerHeaders[indexPage].title()}/>
           {answerHeaders[indexPage].title()}
-          {resulterror && <p className='title-small error'>* is riquired</p>}
+          {resulterror && <p className='title-small error'>* is required</p>}
         </Header>
         <nav>
         {
@@ -158,15 +159,20 @@ export default function Questions() {
         <footer>
           <Button  disabled={resulterror ? 'disabled' : null}
           onClick={() => indexPage === 0 ? history.push('/') : handlePage('-')}>
-          {indexPage === 0 ? 'home' : 'previous '}</Button>
+          <span className="prev"> </span>
+            {indexPage === 0 ? 'home' : 'previous '}
+          </Button>
 
           <Button disabled={resulterror ? 'disabled' : null}
           onClick={() => indexPage === 2 ?
             verifyFinishProp() : handlePage('+')}>
-          {indexPage === 2 ? 'finish' : 'next'}</Button>
+            {indexPage === 2 ? 'finish' : 'next'}
+            <span className="next"> </span>
+          </Button>
         </footer>
 
       </Wrapper>
     </Container>
   );
 }
+

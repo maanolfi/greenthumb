@@ -13,7 +13,7 @@ const Home = () => {
         <img src={Logo} alt="Green thumb logo" className='home-logo'/>
         <p>Find your next green friend</p>
         <Link to='/questions'>
-          -> start quizz
+          <span className='next'> </span> start quizz
         </Link>
       </HomeNav>
 

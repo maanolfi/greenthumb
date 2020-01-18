@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import pointer from '../../assets/icons/pointer.svg';
 
 
 export const Container = styled.div`
@@ -62,18 +62,24 @@ export const Header = styled(Wrapper)`
         display: flex;
         justify-content: center;
         align-items: center;
-        color: #fff;
-        background: #15573F;
         border-radius: 28px;
         width: 213px;
         height: 50px;
         margin-top: 13px;
-
         font-weight: 300;
         font-size: 16px;
         line-height: 20px;
         text-align: center;
-        color: #FFFFFF;
+        border: 1px solid #15573F;
+        box-sizing: border-box;
+        color: #15573F;
+        background-color: #fff;
+        cursor: url(${pointer}), auto;
+        :hover {
+          transition: 0.4s;
+          color: #fff;
+          background-color: #15573F;
+        }
 
     }
 
