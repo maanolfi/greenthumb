@@ -20,6 +20,13 @@ export const Button = styled.button`
       transition: 0.4s;
       background: url(${props => props.nameSvgWhite});
       background-size: 100px 82px;
+
+      @media (max-width: 768px) {
+        width: 42px;
+        height: 42px;
+        margin: 0 20px;
+        background-size: 42px 42px;
+      }
     }
   }
 
@@ -27,6 +34,17 @@ export const Button = styled.button`
     margin-top: 30px;
   }
 
+  @media (max-width: 768px) {
+    display: flex;
+    width: 265px;
+    height: 75px;
+    margin: 20px 30px 0 30px;
+
+    p {
+      margin: 0;
+      align-self: center;
+    }
+  }
 
 
 
@@ -40,5 +58,12 @@ export const IconSvg = styled.span`
   background: url(${props => props.nameSvg});
   background-size: 100px 82px;
 
+  @media (max-width: 768px) {
+    align-self: center;
+    width: 42px;
+    height: 42px;
+    margin: 0 20px;
+    background-size: 42px 42px;
+  }
 
 `;

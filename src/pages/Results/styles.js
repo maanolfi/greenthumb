@@ -9,6 +9,10 @@ export const Container = styled.div`
 
   display: grid;
   grid-template-columns: 0.05fr 1fr;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -28,6 +32,23 @@ export const Header = styled(Wrapper)`
     text-align: center;
     margin-top: 48px;
     color: #0C261C;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 245px;
+    height: 100px;
+
+    img {
+      margin-top: 50px;
+      width: 146px;
+      height: 72px;
+    }
+
+    p {
+      margin-top: 29px;
+      font-size: 40px;
+      line-height: 49px;
+    }
   }
 `
  export const Main = styled.main`

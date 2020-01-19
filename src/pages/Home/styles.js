@@ -1,13 +1,34 @@
 import styled from 'styled-components';
 import pointer from '../../assets/icons/pointer.svg';
 
+import HomeImg from '../../assets/illustrations/home.png'
+import MobileImg from '../../assets/illustrations/home-mobile.png'
+
 export const Container = styled.div`
   display: flex;
 
-  .home-imgaside {
-    width: 600px;
-    height: 600px;
+  .img {
+    margin-top: 20px;
+    width: 779px;
+    height: 738px;
     margin-left: -50px;
+    background-image: url(${HomeImg});
+    background-repeat: no-repeat;
+
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    .img {
+      width: 100vw;
+      height: 100vh;
+      margin: 34px 0 0 0;
+      background-image: url(${MobileImg}) center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
   }
 `;
 
@@ -15,7 +36,6 @@ export const Container = styled.div`
 export const HomeNav = styled(Container)`
     flex-direction: column;
     margin: 62px 0 0 174px;
-
 
     .home-logo {
       width: 208px;
@@ -41,7 +61,7 @@ export const HomeNav = styled(Container)`
       margin-top: 28px;
       background: #15573F;
       border-radius: 28px;
-      width: 170px;
+      width: 174px;
       height: 50px;
       cursor: url(${pointer}), auto;
       font-weight: 600;
@@ -76,6 +96,35 @@ export const HomeNav = styled(Container)`
 
       }
 
+    }
+
+    @media (max-width: 768px) {
+      margin: 0;
+
+      .home-logo {
+        align-self: center;
+        margin-top: 24px;
+        width: 166px;
+        height: 20px;
+        margin-left: 4px;
+      }
+
+      p {
+        align-self: center;
+        width: 296px;
+        height: 86px;
+        font-weight: bold;
+        font-size: 35px;
+        line-height: 43px;
+        text-align: center;
+        color: #0C261C;
+        margin-top: 45px;
+      }
+
+      a {
+        margin-top: 35px;
+        align-self: center;
+      }
     }
 
 `

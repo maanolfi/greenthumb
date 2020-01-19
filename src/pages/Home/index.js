@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { Container, HomeNav } from './styles'
 
 import Logo from '../../assets/logo/logo-greenthumb.svg'
-import Imghomedeskop from '../../assets/illustrations/illustration-home.png'
+
 
 const Home = () => {
   return (
@@ -17,7 +17,7 @@ const Home = () => {
         </Link>
       </HomeNav>
 
-      <img src={Imghomedeskop} alt="Green thumb home" className='home-imgaside'/>
+      <div className="img"> </div>
 
     </Container>
   )

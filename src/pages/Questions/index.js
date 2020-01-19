@@ -145,7 +145,7 @@ export default function Questions() {
       <Wrapper idClick={clickname}>
         <Header>
           <img src={answerHeaders[indexPage].logo} alt={answerHeaders[indexPage].title()}/>
-          {answerHeaders[indexPage].title()}
+          <p>{answerHeaders[indexPage].title()}</p>
           {resulterror && <p className='title-small error'>* is required</p>}
         </Header>
         <nav>

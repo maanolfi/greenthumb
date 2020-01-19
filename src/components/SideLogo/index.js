@@ -6,10 +6,10 @@ import Logo from '../../assets/logo/logo-greenthumb.svg'
 const SideLogo = () => {
   return (
     <Wrapper>
-    <Link to='/'>
-      <img src={Logo} alt="Green Thumb." className='side-logo'/>
-    </Link>  
-      <Line />      
+      <Link to='/'>
+        <img src={Logo} alt="Green Thumb." className='side-logo'/>
+      </Link>
+      <Line />
     </Wrapper>
   )
 }

@@ -14,12 +14,27 @@ export const Container = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+      }
       }
 
     footer {
       display: flex;
       width: 766px;
       justify-content: space-between;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 0.5fr 1fr;
     }
 
 `;
@@ -34,6 +49,11 @@ export const Wrapper = styled.div`
     border: 2px solid #FD9872;
   }
 
+  @media (max-width: 768px) {
+    width: 100vw;
+    height: 100vh;
+  }
+
 `;
 
 export const Header= styled(Wrapper)`
@@ -41,6 +61,11 @@ export const Header= styled(Wrapper)`
   text-align: center;
   color: #6E6E6E;
   font-weight: 300;
+
+  img {
+    max-width: 160px;
+    height: 100px;
+  }
 
   p {
     margin-top: 30px;
@@ -55,7 +80,27 @@ export const Header= styled(Wrapper)`
   }
 
   .error {
-    color: red;
+    color: #FD9872;
+  }
+
+  @media (max-width: 768px) {
+
+    img {
+      margin-top: 30px;
+    }
+
+    p {
+      align-self: center;
+      margin-top: 20px;
+      max-width: 290px;
+      max-height: 100px;
+      font-size: 22px;
+      line-height: 32px;
+    }
+    .title-small {
+      margin-top: 5px;
+      line-height: 25px;
+    }
   }
 `
 
@@ -96,7 +141,7 @@ export const Button = styled.button`
         ::before {
           content: '';
           background-color: #fff;
-          transform: rotate(45deg) translate(-7px,4.99px) scale(1);;
+          transform: rotate(45deg) translate(-5px,4px) scale(1);
         }
       }
     }
@@ -154,12 +199,16 @@ export const Button = styled.button`
           background-color: #15573F;
           position: absolute;
           transform-origin: left;
-          transform: rotate(45deg) translate(-6px,3px) scale(0);
+          transform: rotate(45deg) translate(-5px,4px) scale(0);
           transition: .5s;
 
         }
 
 
+      }
+
+      @media (max-width: 768px) {
+        margin-top: 10px;
       }
 
 
