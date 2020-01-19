@@ -40,7 +40,6 @@ export const Header = styled(Wrapper)`
     top: 60px;
     position: fixed;
 
-
     img {
       margin-top: 30px;
       width: 146px;
