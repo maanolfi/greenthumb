@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 
+
 import { requestOnlyPlant } from '../../store/modules/plants/actions'
 
 import SideLogo from '../../components/SideLogo'
@@ -29,6 +30,7 @@ export default function Results() {
           {loading && <span>Carregando...</span>}
           {
             results.map(result => (
+
               <div className='plants-card' key={result.id}>
                 <img src={result.url} alt=""/>
                 <p>{result.name}</p>
@@ -38,8 +40,10 @@ export default function Results() {
                 </button>
             </div>
 
+
             ))
           }
+
 
 
         </Main>

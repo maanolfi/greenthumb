@@ -22,11 +22,11 @@ export const Container = styled.div`
 
     .img {
       width: 100vw;
-      height: 100vh;
+      height: 50vh;
       margin: 34px 0 0 0;
       background-image: url(${MobileImg}) center;
       background-repeat: no-repeat;
-      background-size: contain;
+      background-size: 100vw 50vh;
     }
 
   }

@@ -11,7 +11,8 @@ export const Container = styled.div`
   grid-template-columns: 0.05fr 1fr;
 
   @media (max-width: 768px) {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
   }
 `;
 
@@ -36,10 +37,12 @@ export const Header = styled(Wrapper)`
 
   @media (max-width: 768px) {
     max-width: 245px;
-    height: 100px;
+    top: 60px;
+    position: fixed;
+
 
     img {
-      margin-top: 50px;
+      margin-top: 30px;
       width: 146px;
       height: 72px;
     }
@@ -58,8 +61,14 @@ export const Header = styled(Wrapper)`
     margin: 0 auto;
     padding-bottom: 20px;
 
-    .plants-card {
+    @media (max-width: 768px) {
+      flex-flow: row nowrap;
+      position: relative;
+      top: 160px;
 
+    }
+
+    .plants-card {
       margin: 0 10px;
       flex: 1 1 268px;
       margin-top: 78px;
