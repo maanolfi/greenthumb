@@ -12,14 +12,7 @@ export const Container = styled.div`
 
   @media (max-width: 768px) {
     width: 100vw;
-    height: 500px;
-
-
-    img.side-logo {
-      width: 80vw;
-      left: 10vw;
-      position: fixed;
-    }
+    grid-template-columns: 1fr;
   }
 `;
 
@@ -28,6 +21,11 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    overflow-y: hidden;
+    overflow-x: scroll;
+  }
 `
 
 export const Header = styled(Wrapper)`
@@ -48,10 +46,6 @@ export const Header = styled(Wrapper)`
 
   @media (max-width: 768px) {
     width: 80vw;
-
-    top: 50px;
-    left: 10vw;
-    position: fixed;
 
     img {
       margin-top: 30px;
@@ -74,9 +68,21 @@ export const Header = styled(Wrapper)`
     padding-bottom: 20px;
 
     @media (max-width: 768px) {
-      flex-flow: row nowrap;
-      margin-top: 230px;
-      position: relative;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      margin-top: 30px;
+      width: 400%;
+      height: inherit;
+
+      .plants-card {
+
+
+        width: 25%;
+        height: 100%;
+        text-align: center;
+        display: inline-block;
+        margin-right: -4px;
+      }
     }
 
     .plants-card {
@@ -138,5 +144,9 @@ export const Header = styled(Wrapper)`
         color: #6E6E6E;
         margin-top: 5px;
       }
+
+      @media (max-width: 768px) {
+        margin-top: 10px;
+    }
     }
  `

@@ -26,11 +26,9 @@ export default function Results() {
         </Header>
 
         <Main>
-
           {loading && <span>Carregando...</span>}
           {
             results.map(result => (
-
               <div className='plants-card' key={result.id}>
                 <img src={result.url} alt=""/>
                 <p>{result.name}</p>
@@ -38,7 +36,7 @@ export default function Results() {
                 <button onClick={() => dispath(requestOnlyPlant(result.id))}>
                   buy now
                 </button>
-            </div>
+              </div>
 
 
             ))
