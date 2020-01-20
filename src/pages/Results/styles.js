@@ -45,10 +45,9 @@ export const Header = styled(Wrapper)`
   }
 
   @media (max-width: 768px) {
-    width: 80vw;
+    width: 300px;
 
     img {
-      margin-top: 30px;
       width: 146px;
       height: 72px;
     }
@@ -70,18 +69,15 @@ export const Header = styled(Wrapper)`
     @media (max-width: 768px) {
       flex-direction: row;
       flex-wrap: nowrap;
-      margin-top: 30px;
       width: 400%;
       height: inherit;
 
       .plants-card {
-
-
-        width: 25%;
-        height: 100%;
+        width: 30%;
+        height: 80%;
         text-align: center;
         display: inline-block;
-        margin-right: -4px;
+        margin-right: 0;
       }
     }
 
