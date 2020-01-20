@@ -140,8 +140,8 @@ export default function Questions() {
 
   return (
     <Container>
-
       <SideLogo />
+
       <Wrapper idClick={clickname}>
         <Header>
           <img src={answerHeaders[indexPage].logo} alt={answerHeaders[indexPage].title()}/>

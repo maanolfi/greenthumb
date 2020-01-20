@@ -5,7 +5,7 @@ import pointer from '../../assets/icons/pointer.svg';
 export const Container = styled.div`
   background-color: #f6f6f6;
   width: 100%;
-  height: 100vh;
+  height: auto;
 
   display: grid;
   grid-template-columns: 0.05fr 1fr;
@@ -33,8 +33,8 @@ export const Container = styled.div`
     }
 
     @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-      grid-template-rows: 0.5fr 1fr;
+      display: flex;
+      flex-direction: column;
     }
 
 `;
@@ -51,7 +51,6 @@ export const Wrapper = styled.div`
 
   @media (max-width: 768px) {
     width: 100vw;
-    height: auto;
   }
 
 `;
@@ -209,6 +208,7 @@ export const Button = styled.button`
 
       @media (max-width: 768px) {
         margin-top: 10px;
+        margin-bottom: 0;
       }
 
 

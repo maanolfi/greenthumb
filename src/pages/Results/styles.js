@@ -11,8 +11,15 @@ export const Container = styled.div`
   grid-template-columns: 0.05fr 1fr;
 
   @media (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
+    width: 100vw;
+    height: 500px;
+
+
+    img.side-logo {
+      width: 80vw;
+      left: 10vw;
+      position: fixed;
+    }
   }
 `;
 
@@ -26,6 +33,10 @@ export const Wrapper = styled.div`
 export const Header = styled(Wrapper)`
   max-width: 598px;
 
+  img {
+    margin-top: 30px;
+  }
+
   p {
     font-weight: bold;
     font-size: 65px;
@@ -36,8 +47,10 @@ export const Header = styled(Wrapper)`
   }
 
   @media (max-width: 768px) {
-    max-width: 245px;
-    top: 60px;
+    width: 80vw;
+
+    top: 50px;
+    left: 10vw;
     position: fixed;
 
     img {
@@ -62,9 +75,8 @@ export const Header = styled(Wrapper)`
 
     @media (max-width: 768px) {
       flex-flow: row nowrap;
+      margin-top: 230px;
       position: relative;
-      top: 160px;
-
     }
 
     .plants-card {

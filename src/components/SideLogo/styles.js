@@ -30,9 +30,10 @@ export const Line = styled.div`
   margin-top: -10px;
 
   @media (max-width: 768px) {
-    width: 100px;
+    width: 10px;
     height: 10px;
     display: none;
     margin: 0;
+
   }
 `
