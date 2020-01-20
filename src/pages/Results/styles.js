@@ -48,14 +48,14 @@ export const Header = styled(Wrapper)`
     width: 300px;
 
     img {
-      width: 146px;
-      height: 72px;
+      width: 106px;
+      height: 52px;
     }
 
     p {
-      margin-top: 29px;
-      font-size: 40px;
-      line-height: 49px;
+      margin-top: 10px;
+      font-size: 20px;
+      line-height: 29px;
     }
   }
 `
@@ -78,6 +78,8 @@ export const Header = styled(Wrapper)`
         text-align: center;
         display: inline-block;
         margin-right: 0;
+
+
       }
     }
 
