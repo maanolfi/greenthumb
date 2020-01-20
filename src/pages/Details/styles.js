@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-
-
 export const Container = styled.div`
   background-color: #fff !important;
   width: 100vw;
@@ -12,14 +10,13 @@ export const Container = styled.div`
 
   h2 {
     font-weight: bold;
-    color: #0C261C;
+    color: #0c261c;
   }
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
 `;
-
 
 export const Wrapper = styled.div`
   display: flex;
@@ -31,8 +28,7 @@ export const Wrapper = styled.div`
 
     align-items: center;
   }
-
-`
+`;
 
 export const ContentDetails = styled.div`
   width: 381px;
@@ -40,7 +36,7 @@ export const ContentDetails = styled.div`
   display: flex;
   flex-direction: column;
 
- .img-plants {
+  .img-plants {
     max-width: 300px;
     min-width: 200px;
     max-height: 300px;
@@ -59,7 +55,7 @@ export const ContentDetails = styled.div`
     font-size: 24px;
     line-height: 29px;
     margin: 10px 0 25px 0;
-    color: #D6D6D6;
+    color: #d6d6d6;
   }
 
   span {
@@ -74,17 +70,13 @@ export const ContentDetails = styled.div`
         max-width: 30px;
         max-height: 30px;
         margin: 15px 10px;
-
       }
 
       p {
-        color: #6E6E6E;
+        color: #6e6e6e;
         margin: 0;
       }
-
     }
-
-
   }
 
   @media (max-width: 768px) {
@@ -112,35 +104,30 @@ export const ContentDetails = styled.div`
       font-size: 24px;
       line-height: 29px;
       margin: 10px 0 25px 0;
-      color: #D6D6D6;
+      color: #d6d6d6;
     }
 
     span {
       padding: 0 28px;
 
-    div {
-      display: flex;
-      align-items: center;
+      div {
+        display: flex;
+        align-items: center;
 
-      img {
-        max-width: 28px;
-        max-height: 28px;
-        margin: 10px 0;
+        img {
+          max-width: 28px;
+          max-height: 28px;
+          margin: 10px 0;
+        }
+
+        p {
+          font-weight: 300;
+          font-size: 16px;
+          line-height: 20px;
+          color: #6e6e6e;
+          margin: 0;
+        }
       }
-
-      p {
-        font-weight: 300;
-        font-size: 16px;
-        line-height: 20px;
-        color: #6E6E6E;
-        margin: 0;
-      }
-
     }
-
-
   }
-  }
-
-
-`
+`;

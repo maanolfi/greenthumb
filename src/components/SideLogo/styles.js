@@ -2,25 +2,23 @@ import styled from 'styled-components';
 import pointer from '../../assets/icons/pointer.svg';
 
 export const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    .side-logo {
-      width: 150px;
-      height: 200px;
-      transform: rotate(-90deg);
-      cursor: url(${pointer}), auto;
+  .side-logo {
+    width: 150px;
+    height: 200px;
+    transform: rotate(-90deg);
+    cursor: url(${pointer}), auto;
 
-      @media (max-width: 768px) {
-        margin: 34px 0 0 0;
-        transform: rotate(0);
-        width: 166px;
-        height: 20px;
-
-      }
+    @media (max-width: 768px) {
+      margin: 34px 0 0 0;
+      transform: rotate(0);
+      width: 166px;
+      height: 20px;
     }
-
+  }
 `;
 
 export const Line = styled.div`
@@ -34,6 +32,5 @@ export const Line = styled.div`
     height: 10px;
     display: none;
     margin: 0;
-
   }
-`
+`;

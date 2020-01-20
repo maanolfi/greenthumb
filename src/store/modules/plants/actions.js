@@ -1,7 +1,7 @@
 export function Answer(answers) {
   return {
     type: '@plants/ANSWER_REQUEST',
-    answers
+    answers,
   };
 }
 
@@ -12,17 +12,10 @@ export function successPlants(data) {
   };
 }
 
-export function failurePlants() {
-  return {
-    type: '@plants/FAILURE',
-  };
-}
-
-
 export function requestOnlyPlant(id) {
   return {
     type: '@plants/REQUEST_ONLY_PLANT',
-    id
+    id,
   };
 }
 
@@ -45,4 +38,3 @@ export function postMsgPlantSuccess() {
     type: '@plants/POST_MSG_SUCCESS',
   };
 }
-

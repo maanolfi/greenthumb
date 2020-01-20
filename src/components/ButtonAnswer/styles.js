@@ -11,8 +11,8 @@ export const Button = styled.button`
 
   :hover {
     transition: 0.4s;
-    background: #FD9872;
-    box-shadow: 0px 22px 24px #F6D7CB;
+    background: #fd9872;
+    box-shadow: 0px 22px 24px #f6d7cb;
     border-radius: 5px;
     color: #fff;
 
@@ -45,10 +45,7 @@ export const Button = styled.button`
       align-self: center;
     }
   }
-
-
-
-`
+`;
 
 export const IconSvg = styled.span`
   display: block;
@@ -65,5 +62,4 @@ export const IconSvg = styled.span`
     margin: 0 20px;
     background-size: 42px 42px;
   }
-
 `;
